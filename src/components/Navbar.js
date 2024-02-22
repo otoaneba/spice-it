@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPepperHot } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navbar() {
+function Navbar() {
   return (
       <nav className="navbar">
         <div>
           <FontAwesomeIcon className="icon" icon={faPepperHot} />
-          <a class="navbar-brand" href="/spice-it-global">
+          <a class="navbar-brand" href="/">
             Spice IT Global
           </a>
         </div>
@@ -24,3 +24,5 @@ export default function Navbar() {
       </nav>
   )
 }
+
+export { Navbar };
