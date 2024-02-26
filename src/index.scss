@@ -179,12 +179,12 @@ a:hover::before {
   gap: 0;
 }
 
-.fixed-service-header { 
+.fixed-service-header {
   padding-top: 1rem;
   font-family: 'Georgia', serif;
   font-size: 14px;
   margin: 0;
-  @media (min-width: 768px) { 
+  @media (min-width: 768px) {
     font-size: 18px;
   }
 }
@@ -194,7 +194,7 @@ a:hover::before {
   padding-bottom: 1rem;
 }
 
-.rotatingText-adjective { 
+.rotatingText-adjective {
   font-family: 'tiempos,Georgia,Cambria,Palatino,"Times New Roman",Times,serif';
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -207,47 +207,47 @@ a:hover::before {
   opacity: 0;
   position: absolute;
   text-transform: uppercase;
-  
-  @media (min-width: 768px) { 
+
+  @media (min-width: 768px) {
     font-size: 70px;
   }
-  
-  &:nth-of-type(1) { 
-    animation: rotate-text-up 1.5s .75s; 
+
+  &:nth-of-type(1) {
+    animation: rotate-text-up 1.5s .75s;
   }
-  
-  &:nth-of-type(2) { 
-    animation: rotate-text-up 1.5s 2s; 
-  }  
-  
-  &:nth-of-type(3) { 
+
+  &:nth-of-type(2) {
+    animation: rotate-text-up 1.5s 2s;
+  }
+
+  &:nth-of-type(3) {
     animation: fade-text-in 1.5s 3.25s forwards;
   }
 }
 
-@keyframes rotate-text-up { 
+@keyframes rotate-text-up {
   0% {
     transform: translate3d(0, 80px, 0);
     opacity: 0;
   }
-  
+
   20%, 80% {
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-  
+
   100% {
     transform: translate3d(0, -40px, 0);
     opacity: 0;
   }
 }
 
-@keyframes fade-text-in { 
+@keyframes fade-text-in {
   0% {
     opacity: 0;
     transform: translate3d(0, 80px, 0);
   }
-  
+
   50%, 100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -404,20 +404,30 @@ a:hover::before {
 /* Footer *************************************/
 .footer {
   display: flex;
-  flex-flow: row wrap;
-  padding: 30px 30px 20px 30px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
   color: #2f2f2f;
   background-color: #F5F5F5;
   border-top: 1px solid #e5e5e5;
+  width: 100%;
 }
 
-.footer > * {
-  flex:  1 100%;
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.footer-addr {
-  margin-right: 1.25em;
-  margin-bottom: 2em;
+.icon-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand {
+  margin-left: 10px; /* Adjust as needed */
 }
 
 .footer-btn {
@@ -436,12 +446,5 @@ a:hover::before {
 }
 
 .legal {
-  display: flex;
-  flex-wrap: wrap;
-  color: #bcbcbc;
-}
-
-.legal-links {
-  display: flex;
-  align-items: center;
+  margin-top: 20px; /* Adjust spacing as needed */
 }
