@@ -403,6 +403,7 @@ a:hover::before {
 
 /* Footer *************************************/
 .footer {
+  margin-top: auto; /* This pushes the footer to the bottom */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -427,7 +428,7 @@ a:hover::before {
 }
 
 .navbar-brand {
-  margin-left: 10px; /* Adjust as needed */
+  margin-left: 10px;
 }
 
 .footer-btn {
@@ -446,5 +447,5 @@ a:hover::before {
 }
 
 .legal {
-  margin-top: 20px; /* Adjust spacing as needed */
+  margin-top: 20px;
 }
