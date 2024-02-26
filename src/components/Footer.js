@@ -6,7 +6,6 @@ import { faPepperHot } from "@fortawesome/free-solid-svg-icons";
 function Footer() {
 	return (
 		<footer class="footer">
-			<div class="footer-content">
 				<div class="icon-brand">
 					<FontAwesomeIcon className="icon" icon={faPepperHot} />
 					<a class="navbar-brand" href="/">
@@ -20,7 +19,6 @@ function Footer() {
 				<div class="legal">
 					<p>&copy; 2024 Spice IT Global. All rights reserved.</p>
 				</div>
-			</div>
 		</footer>
 	);
 }
