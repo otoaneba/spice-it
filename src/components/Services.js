@@ -20,9 +20,9 @@ function Services() {
           <article className="article-service">
               <FontAwesomeIcon className="icon-service" icon={faCode}/>
               <h5 className="article-description"><b>Web Development</b></h5>
-              <p className="article-details">We can help build a website to provide a digital storefront to showcase products or services, reach a wider audience, and establish credibility in their market.</p>
+              <p className="article-details">Need a website? Outdated website? .... </p>
           </article>
-          <article className="service-card">
+          {/* <article className="service-card">
               <FontAwesomeIcon className="icon-service" icon={faChartColumn}/>
               <h5 className="article-description"><b>IOS Development</b></h5>
               <p className="article-details">Offer your customers with personalized experiences, easy access to services, and efficient communication on Apple devices.</p>
@@ -46,7 +46,7 @@ function Services() {
               <FontAwesomeIcon className="icon-service" icon={faPenNib}/>
               <h5 className="article-description"><b>Designing Graphics</b></h5>
               <p className="article-details">Improve your business by improving user interface design and making applications more visually appealing and intuitive, thereby improving user experience and engagement.</p>
-          </article>
+          </article> */}
       </div>
     </main>
 </div>

@@ -9,15 +9,15 @@ function Navbar() {
       <nav className="navbar">
         <div>
           <FontAwesomeIcon className="icon" icon={faPepperHot} />
-          <a class="navbar-brand" href="/">
+          <a className="navbar-brand" href="/">
             Spice IT Global
           </a>
         </div>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-pages">
             <Link to="/" className="navbar-link">Home</Link>
-            <Link to="/services" className="navbar-link"> Services</Link>
-            <Link to="/about" className="navbar-link"> About</Link>
+            {/* <Link to="/services" className="navbar-link"> Services</Link>
+            <Link to="/about" className="navbar-link"> About</Link> */}
             <Link to="/contact" className="navbar-link"> Contact</Link>
           </div>
         </div>
