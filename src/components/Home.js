@@ -1,13 +1,17 @@
-import {React, useState, useEffect } from "react";
-import "./Home.css";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
+import {React, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faMagnifyingGlass, faCamera, faHashtag, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
+import './Home.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
+import m82Image from '../assets/M82.jpg';
+import jijiImage from '../assets/jiji.JPG';
+import naotoImage from '../assets/naoto.jpg';
+import cynthiaImage from '../assets/cynthia.JPG';
 
 
 const sliderSettings = {
@@ -52,21 +56,21 @@ const [isMobile, setIsMobile] = useState(false);
         description: "We don't use templates. We take the time to understand your needs and craft a custom solution that helps your business grow.",
         whatWeOffer: "Your business deserves more than a template. We design bespoke websites that reflect your brand, goals, and audience—no cookie-cutter solutions here!",
         whyItMatters: "Stand out from competitors with unique features and a professional, polished look designed specifically for your needs.",
-        image: "/assets/jiji.jpg"
+        image: jijiImage
     },
     {
         title: "We don’t just build websites – we build your brand.",
         description: "From design to content, we create a strong online presence that reflects your brand’s identity and values.",
         whatWeOffer: "",
         whyItMatters: "", 
-        image: "/assets/naoto.jpg"
+        image: naotoImage
     },
     {
         title: "Affordable pricing that fits small business budgets.",
         description: "High-quality websites and services without the high price tag—built for small businesses ready to scale.",
         whatWeOffer: "From design to launch (and beyond), we handle it all: hosting, updates, maintenance, and support.",
         whyItMatters: "Skip the learning curve and let us take care of the tech, so you can focus on running your business.",
-        image: "/assets/cynthia.jpg"
+        image: cynthiaImage
     }
   ];
 // Update the scroll handler
@@ -139,7 +143,7 @@ useEffect(() => {
                   <button className="cta-button">Get Started</button>
               </div>
               <div className="hero-image">
-                <img src="/assets/M82.jpg" alt="Hero Image" />
+                <img src={m82Image} alt="Hero Image" />
               </div>
             </div>
           </section>
