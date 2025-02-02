@@ -222,6 +222,12 @@ useEffect(() => {
 
 
                 <section className="services">
+                {/* <div className="blur-circle blur-circle-1"></div>
+                <div className="blur-circle blur-circle-2"></div> */}
+                 <div className="background-blur">
+                    <div className="blur-circle blur-circle-1"></div>
+                    {/* <div className="blur-circle blur-circle-2"></div> */}
+                </div>
                     <div className="section-content">
                         <div>
                           <h2>A better business starts with the <span>right upgrades.</span></h2>

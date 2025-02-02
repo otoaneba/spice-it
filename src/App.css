@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #root,
 .App {
 	/* Assuming your root React container has the class .App */

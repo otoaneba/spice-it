@@ -12,9 +12,14 @@
   --spacing: 10px;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   overflow-x: hidden;
   width: 100%;
+  
 }
 
 .header {
@@ -30,20 +35,6 @@ body {
     margin-bottom: 2rem;
 }
 
-.intro {
-  display: flex;
-  padding: 2rem 3rem;
-  justify-content: center;
-  background-color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-optical-sizing: auto;
-  padding-bottom: 5rem;
-
-  /* Properties for larger screens */
-  @media (min-width: 800px) {
-    /* background-color: red; */
-  }
-}
 .openModalBtn {
     padding: 1rem 2rem;
     color:#ffffff;
@@ -272,12 +263,13 @@ body {
 /* Services Section ----------------------------------------------------------------------------------------------------------- */
 .services {
   position: relative;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  /* margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%); */
   padding: 4rem 2rem 6rem 2rem;
   background-color: var(--secondary-color);
   width: 100%;
   margin-top: 0rem;
+  overflow: hidden;
 }
 
 .services .section-content {
@@ -285,6 +277,7 @@ body {
   margin: 0 auto; /* Center the section horizontally */
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 .services h2 {
@@ -371,7 +364,7 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .services {
-        padding: 3rem 2rem 0rem 2rem;
+        padding: 3rem 2rem 2rem 2rem;
     }
 
     .services h2 {
@@ -387,15 +380,12 @@ body {
     .service-card {
         padding: 2rem;
         flex: 1;
+        margin-bottom: 1rem;
       
       &:first-child,
       &:hover {
         flex: 1;
       }
-    }
-
-    .services-row {
-      
     }
 
     .service-card h3 {
@@ -489,12 +479,13 @@ body {
 /* Individual Slides */
 .slick-slide > div {
   padding: 0 1rem;
-  margin: 0 10px;
+  margin: 1rem 10px;
 }
 
 @media (max-width: 768px) {
     .use-cases {
-        padding: 4rem 0;
+        padding: 2rem 0;
+        clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%) !important;
     }
 
     .use-cases h2 {
@@ -513,11 +504,10 @@ body {
 /* sticky scroll ---------------------------------------------------------------------------------------------- */
 .sticky-scroll-section {
   position: relative;
-  width: calc(100% + 12rem);
-  margin-left: -6rem;
-  margin-right: -6rem;
-  background-color: #FDFBF9;
-  clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);
+  /* width: 100vw;
+ 
+  background-color: #FDFBF9; */
+  padding: 2rem 2rem;
   overflow: hidden;
 }
 
@@ -530,7 +520,7 @@ body {
 /* Left side - scrolling content */
 .content-side {
   width: 50%;  /* Fixed width instead of flex */
-  padding: 0 4rem;
+  padding-right: 4rem;
 }
 
 .content-block {
@@ -567,12 +557,14 @@ body {
   display: flex;
   align-items: center;  /* Center vertically */
   justify-content: center;  /* Center horizontally */
+
 }
 
 .image-side {
   position: relative;
   width: 400px;  /* Set a fixed width for your images */
   height: 300px;  /* Set a fixed height for your images */
+
 }
 
 .image-block {
@@ -740,124 +732,6 @@ body {
 }
 
 
-
-/* Choose Us Section */
-.choose-us {
-    padding: 6rem 0;
-    background-color: white;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.split-layout {
-    display: flex;
-    gap: 4rem;
-    align-items: center;
-}
-
-.warning-column, .solution-column {
-    flex: 1;
-}
-
-.warning-column h2 {
-    font-size: 2.5rem;
-    color: #004080;
-    margin-bottom: 2rem;
-}
-
-.warning-points {
-    border-left: 3px solid #CA2500;
-    padding-left: 2rem;
-}
-
-.warning-point {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;  /* Increased from 1.5rem to 2rem for more spacing */
-    padding: 1rem;        /* Added padding around each point */
-    background: #fff;     /* Optional: adds a card-like appearance */
-    border-radius: 8px;   /* Optional: rounds the corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);  /* Optional: adds subtle shadow */
-}
-
-.warning-point i {
-    color: #CA2500;
-    font-size: 1.5rem;
-    margin-right: 1rem;
-}
-
-.warning-point p {
-    font-size: 1.2rem;
-    color: #444;
-}
-
-.solution-column {
-    background: #f8f9fa;
-    padding: 3rem;
-    border-radius: 15px;
-}
-
-.solution-column h3 {
-    font-size: 1.8rem;
-    color: #004080;
-    margin-bottom: 2rem;
-}
-
-.solution-points {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-}
-
-.solution-points li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.2rem;
-    font-size: 1.1rem;
-    color: #444;
-}
-
-.solution-points i {
-    color: #28a745;
-    margin-right: 1rem;
-    font-size: 1.2rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .split-layout {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .warning-column h2 {
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .solution-column {
-        padding: 2rem;
-    }
-
-    .solution-column h3 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .warning-points {
-        border-left: none;
-        padding-left: 0;
-    }
-
-    .warning-point {
-        justify-content: center;
-    }
-}
-
 /* Contact Preview Section */
 .contact-preview {
     padding: 6rem 0;
@@ -973,14 +847,6 @@ body {
     bottom: -30px;
 }
 
-.slick-dots li button:before {
-    color: #CA2500;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #CA2500;
-}
-
 
 
 .use-case-icon {
@@ -1021,29 +887,36 @@ body {
     }
 }
 
-/*  Solutions section -----------------------------------------------------------------  */
-
-.solutions-section {
-    padding: 8rem 0;
-    background-color: #f8f9fa;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+/* Blurred backgrounds ------------------------------------------------------------------------------------------------------ */
+.blur-background {
+  position: relative;
+  overflow: hidden;
 }
 
-.solutions-section .section-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+.blur-circle {
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  pointer-events: none; /* Makes sure it doesn't interfere with clicks */
+  z-index: 0;
 }
 
-.solutions-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
+.blur-circle-1 {
+  top: 170px;
+  left: -150px;
+  background: radial-gradient(circle at center, var(--cta-color), rgba(202, 37, 0, 0));
 }
 
+.blur-circle-2 {
+  bottom: -250px;
+  right: -250px;
+  background: radial-gradient(circle at center, blue, rgba(0, 64, 128, 0));
+}
+
+.section-content {
+  position: relative;
+  z-index: 1;
+}
