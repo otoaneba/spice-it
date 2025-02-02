@@ -14,11 +14,11 @@ const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 400,
-    slidesToShow: 2,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: true,
+    arrows: false,
     responsive: [
         {
             breakpoint: 1024,
@@ -291,15 +291,16 @@ useEffect(() => {
 
                 <section className="use-cases">
                     <div className="section-content">
-                        <h2>A better business starts with better upgrades.</h2>
+                        <h2>See What’s Possible for Your Business.</h2>
                         <p>We start by listening to your needs to build a <b>custom website</b> that aligns with your goals. From <b>social media setup</b> to <b>photography service</b> and <b>SEO optimization</b>, we help you stand out online. Plus, our ongoing support keeps your site secure and running smoothly.</p>
                         <Slider className="use-cases-slider" {...sliderSettings}>
                           <div className="use-case-card">
                             {/* <div className="use-case-icon">
                                 <i className="fas fa-utensils"></i>
                             </div> */}
-                                <FontAwesomeIcon icon={faCode} className="use-case-icon" />
-                            <h3>Website Design & Development</h3>
+                                {/* <FontAwesomeIcon icon={faCode} className="use-case-icon" /> */}
+                            <h3>Food</h3>
+                            <hr></hr>
                             <div className="use-case-content">
                               {/* <ul className="benefits-list">
                                 <li><i className="fas fa-check"></i>Online ordering, reservations, and menu management</li>
@@ -311,8 +312,9 @@ useEffect(() => {
                                 {/* <div className="use-case-icon">
                                     <i className="fas fa-spa"></i>
                                 </div> */}
-                                <FontAwesomeIcon icon={faHashtag} className="use-case-icon" />
-                                <h3>Social Media Setup</h3>
+                                {/* <FontAwesomeIcon icon={faHashtag} className="use-case-icon" /> */}
+                                <h3>Shopping</h3>
+                                <hr></hr>
                                 {/* <div className="use-case-content">
                                     <ul className="benefits-list">
                                         <li><i className="fas fa-check"></i>Booking systems, membership management, and gift card sales</li>
@@ -324,8 +326,9 @@ useEffect(() => {
                                 {/* <div className="use-case-icon">
                                     <i className="fas fa-shopping-cart"></i>
                                 </div> */}
-                                <FontAwesomeIcon icon={faCamera} className="use-case-icon" />
-                                <h3>Photography</h3>
+                                {/* <FontAwesomeIcon icon={faCamera} className="use-case-icon" /> */}
+                                <h3>Media</h3>
+                                <hr></hr>
                                 {/* <div className="use-case-content">
                                   <ul className="benefits-list">
                                   <li><i className="fas fa-check"></i>Affordable, professional online shops</li>
@@ -337,8 +340,9 @@ useEffect(() => {
                                 {/* <div className="use-case-icon">
                                     <i className="fas fa-briefcase"></i>
                                 </div> */}
-                                <FontAwesomeIcon icon={faMagnifyingGlass} className="use-case-icon" />
+                                {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="use-case-icon" /> */}
                                 <h3>SEO Optimization</h3>
+                                <hr></hr>
                                 {/* <div className="use-case-content">
                                     <ul className="benefits-list">
                                         <li>Build trust with a sleek, informative website</li>
@@ -350,8 +354,9 @@ useEffect(() => {
                                 {/* <div className="use-case-icon">
                                     <i className="fas fa-briefcase"></i>
                                 </div> */}
-                                <FontAwesomeIcon icon={faScrewdriverWrench} className="use-case-icon"/>
+                                {/* <FontAwesomeIcon icon={faScrewdriverWrench} className="use-case-icon"/> */}
                                 <h3>Maintenance & Support</h3>
+                                <hr></hr>
                                 <div className="use-case-content">
                                     {/* <ul className="benefits-list">
                                         <li>Build trust with a sleek, informative website</li>
@@ -415,92 +420,6 @@ useEffect(() => {
                             ))}
                         </div>
                 </section>
-                {/* <section className="use-cases">
-                    <div className="section-content">
-                        <h2>What's Missing Without a Website? A Lot.</h2>
-                        <Slider className="use-cases-slider" {...sliderSettings}>
-                          <div className="use-case-card">
-                            <div className="use-case-icon">
-                                <i className="fas fa-utensils"></i>
-                            </div>
-                            <h3>Restaurants</h3>
-                            <div className="use-case-content">
-                              <ul className="benefits-list">
-                                <li><i className="fas fa-check"></i>Online ordering, reservations, and menu management</li>
-                                <li><i className="fas fa-check"></i>Attract more diners with SEO and Instagram-worthy visuals</li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="use-case-card">
-                                <div className="use-case-icon">
-                                    <i className="fas fa-spa"></i>
-                                </div>
-                                <h3>Spas & Salons</h3>
-                                <div className="use-case-content">
-                                    <ul className="benefits-list">
-                                        <li><i className="fas fa-check"></i>Booking systems, membership management, and gift card sales</li>
-                                        <li><i className="fas fa-check"></i>Showcase your services with stunning before-and-after galleries</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="use-case-card">
-                                <div className="use-case-icon">
-                                    <i className="fas fa-shopping-cart"></i>
-                                </div>
-                                <h3>E-Commerce Stores</h3>
-                                <div className="use-case-content">
-                                  <ul className="benefits-list">
-                                  <li><i className="fas fa-check"></i>Affordable, professional online shops</li>
-                                  <li><i className="fas fa-check"></i>Manage inventory, payments, and shipping with ease</li>                                    
-                                  </ul>
-                                </div>
-                            </div>
-                            <div className="use-case-card">
-                                <div className="use-case-icon">
-                                    <i className="fas fa-briefcase"></i>
-                                </div>
-                                <h3>Professional Services</h3>
-                                <div className="use-case-content">
-                                    <ul className="benefits-list">
-                                        <li>Build trust with a sleek, informative website</li>
-                                        <li>Generate leads through integrated contact forms</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </Slider>
-                    </div>
-                </section> */}
-                {/* <section className="choose-us">
-                    <div className="section-content split-layout">
-                        <div className="warning-column">
-                            <h2>Don't Get Left Behind</h2>
-                            <div className="warning-points">
-                                <div className="warning-point">
-                                    <i className="fas fa-exclamation-circle"></i>
-                                    <p>Your competitors are winning</p>
-                                </div>
-                                <div className="warning-point">
-                                    <i className="fas fa-exclamation-circle"></i>
-                                    <p>Customers don't find you</p>
-                                </div>
-                                <div className="warning-point">
-                                    <i className="fas fa-exclamation-circle"></i>
-                                    <p>Growth becomes impossible</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className="solution-column">
-                            <h3>Work With Us Because:</h3>
-                            <ul className="solution-points">
-                                <li><i className="fas fa-check-circle"></i>Tailored solutions for every business</li>
-                                <li><i className="fas fa-check-circle"></i>Affordable pricing that fits small business budgets</li>
-                                <li><i className="fas fa-check-circle"></i>We don't just build websites – we build your brand</li>
-                            </ul>
-                            <button className="cta-button">Let's Get Started!</button>
-                        </div>
-                    </div>
-                </section> */}
                 <section className="contact-preview">
                     <div className="section-content contact-container">
                         <div className="contact-text">
