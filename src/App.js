@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
-        <Route path="/spice-it" element={<Home />} />
+        <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About/>} /> */}
         {/* <Route path="/services" element={<Services />} /> */}
         <Route path="/contact" element={<Contact />} />
