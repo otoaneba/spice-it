@@ -1,10 +1,11 @@
-import {React, useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faMagnifyingGlass, faCamera, faHashtag, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 import './Home.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import emailjs from '@emailjs/browser';
 import Slider from 'react-slick';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -46,88 +47,119 @@ const sliderSettings = {
 };
 
 function Home() {
-const [activeIndex, setActiveIndex] = useState(0);
-const [openIndex, setOpenIndex] = useState(null);
-const [isMobile, setIsMobile] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const scrollSections = [
     {
-        title: "Custom Websites, Tailored for You",
-        description: "We don't use templates. We take the time to understand your needs and craft a custom solution that helps your business grow.",
+        title: "Discovery & Strategy – Understanding Your Business",
+        description: "We start with a conversation to learn about your business, goals, audience, and any constraints you may have.",
         whatWeOffer: "Your business deserves more than a template. We design bespoke websites that reflect your brand, goals, and audience—no cookie-cutter solutions here!",
         whyItMatters: "Stand out from competitors with unique features and a professional, polished look designed specifically for your needs.",
+        steps: ["✅ Define project scope and objectives", "✅ Identify key business challenges and needs", "✅ Discuss budget, timeline, and requirements"],
         image: jijiImage
     },
     {
-        title: "We don’t just build websites – we build your brand.",
-        description: "From design to content, we create a strong online presence that reflects your brand’s identity and values.",
+        title: "Design & Planning – Crafting Your Vision",
+        description: "We create a strategic plan and design mockups based on your goals and brand identity.",
         whatWeOffer: "",
-        whyItMatters: "", 
+        whyItMatters: "",
+        steps: ["✅ Create a detailed design plan", "✅ Develop mockups and prototypes", "✅ Get your approval"],
         image: naotoImage
     },
     {
-        title: "Affordable pricing that fits small business budgets.",
-        description: "High-quality websites and services without the high price tag—built for small businesses ready to scale.",
+        title: "Development & Implementation – Bringing It to Life",
+        description: "Once the design is approved, we turn it into a fully functional website with smooth navigation and optimized performance.",
         whatWeOffer: "From design to launch (and beyond), we handle it all: hosting, updates, maintenance, and support.",
         whyItMatters: "Skip the learning curve and let us take care of the tech, so you can focus on running your business.",
+        steps: ["✅ Develop a functional website", "✅ Implement SEO best practices", "✅ Test and refine"],
+        image: cynthiaImage
+    },
+    {
+        title: "Launch & Support – Go Live with Confidence",
+        description: " We finalize your website, deploy it, and provide ongoing support to keep it running smoothly.",
+        whatWeOffer: "From design to launch (and beyond), we handle it all: hosting, updates, maintenance, and support.",
+        whyItMatters: "Skip the learning curve and let us take care of the tech, so you can focus on running your business.",
+        steps: ["✅ Finalize your website", "✅ Deploy it", "✅ Provide ongoing support"],
         image: cynthiaImage
     }
   ];
-// Update the scroll handler
-useEffect(() => {
-  const handleScroll = () => {
-      const scrollSection = document.querySelector('.sticky-scroll-section');
-      const contentBlocks = document.querySelectorAll('.content-block');
-      const stickySection = document.querySelector('.sticky-side');
-      
-      if (scrollSection && contentBlocks.length && stickySection) {
-          const sectionRect = scrollSection.getBoundingClientRect();
-          const sectionTop = scrollSection.offsetTop;
-          const sectionBottom = sectionTop + scrollSection.offsetHeight - window.innerHeight;
-          const scrollPosition = window.scrollY;
-          // Control sticky behavior
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-              stickySection.style.position = 'fixed';
-              stickySection.style.top = '0';
-              stickySection.style.right = '0';
-              stickySection.style.width = '50%';
-          } else if (scrollPosition < sectionTop) {
-              stickySection.style.position = 'absolute';
-              stickySection.style.top = '0';
-          } else {
-              stickySection.style.position = 'absolute';
-              stickySection.style.top = `${scrollSection.offsetHeight - window.innerHeight}px`;
-          }
-          
-          // Determine active content block
-          contentBlocks.forEach((block, index) => {
-              const rect = block.getBoundingClientRect();
-              if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
-                  setActiveIndex(index);
-              }
-          });
-      }
-  };
+  // Update the scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+        const scrollSection = document.querySelector('.sticky-scroll-section');
+        const contentBlocks = document.querySelectorAll('.content-block');
+        const stickySection = document.querySelector('.sticky-side');
+        
+        if (scrollSection && contentBlocks.length && stickySection) {
+            const sectionRect = scrollSection.getBoundingClientRect();
+            const sectionTop = scrollSection.offsetTop;
+            const sectionBottom = sectionTop + scrollSection.offsetHeight - window.innerHeight;
+            const scrollPosition = window.scrollY;
+            // Control sticky behavior
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                stickySection.style.position = 'fixed';
+                stickySection.style.top = '0';
+                stickySection.style.right = '0';
+                stickySection.style.width = '50%';
+            } else if (scrollPosition < sectionTop) {
+                stickySection.style.position = 'absolute';
+                stickySection.style.top = '0';
+            } else {
+                stickySection.style.position = 'absolute';
+                stickySection.style.top = `${scrollSection.offsetHeight - window.innerHeight}px`;
+            }
+            
+            // Determine active content block
+            contentBlocks.forEach((block, index) => {
+                const rect = block.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.5) {
+                    setActiveIndex(index);
+                }
+            });
+        }
+    };
 
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     // Check if screen is mobile
-    useEffect(() => {
-      const checkMobile = () => {
-          setIsMobile(window.innerWidth <= 768);
-      };
-      
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      
-      return () => window.removeEventListener('resize', checkMobile);
+  useEffect(() => {
+    const checkMobile = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const toggleDropdown = (index) => {
-      setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex(openIndex === index ? null : index);
   };
+
+  const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            'YOUR_SERVICE_ID', // from EmailJS
+            'YOUR_TEMPLATE_ID', // from EmailJS
+            form.current,
+            'YOUR_PUBLIC_KEY' // from EmailJS
+        )
+        .then((result) => {
+            console.log('Email sent successfully');
+            // Clear form or show success message
+        }, (error) => {
+            console.log('Failed to send email:', error);
+            // Show error message
+        });
+    };
 
   return (
     <div>
@@ -385,6 +417,11 @@ useEffect(() => {
                                 <div key={index} className="content-block">
                                     <h2>{section.title}</h2>
                                     <p>{section.description}</p>
+                                    
+                                      {section.steps.map((step, index) => (
+                                        <span>{step}</span>
+                                      ))}
+                                    
                                 </div>
                             ))}
                         </div>
@@ -434,28 +471,49 @@ useEffect(() => {
                     <div className="section-content contact-container">
                         <div className="contact-text">
                             <h2>Let's Bring Your Vision to Life</h2>
-                            <p>Ready to take your business to the next level? We're here to help!</p>
-                            <div className="contact-details">
-                                <div className="contact-item">
-                                    <i className="fas fa-envelope"></i>
-                                    <p>support@spiceitglobal.com</p>
-                                </div>
-                                <div className="contact-item">
-                                    <i className="fas fa-phone"></i>
-                                    <p>+46 XX XXX XX XX</p>
-                                </div>
-                                <div className="contact-item">
-                                    <i className="fas fa-location-dot"></i>
-                                    <p>Gothenburg, Sweden</p>
-                                </div>
-                            </div>
-                        </div>
+                            <div className="inline-form-container flex flex-wrap gap-4 items-center p-6 bg-gray-50 rounded-lg">
+                              <div className="flex items-center">
+                                  <span className="text-gray-600">Hey, my name is</span>
+                                  <input 
+                                      type="text" 
+                                      className="mx-2 px-2 py-1 border-b-2 border-gray-300 focus:border-blue-500 bg-transparent outline-none"
+                                      placeholder="your name"
+                                  />
+                              </div>
+                              
+                              <div className="flex items-center">
+                                  <span>and I would love to talk with you about</span>
+                                  <div className="select-wrapper">                                
+                                    <select className="px-2 py-1 border-b-2 border-gray-300 focus:border-blue-500 bg-transparent outline-none">
+                                      <option>Website Development</option>
+                                          <option>Digital Marketing</option>
+                                          <option>Web Development</option>
+                                          <option>Design Services</option>
+                                          <option>Something else</option>
+                                      </select>
+                                    <span className="chevron-icon"></span>
+                                  </div>
+                              </div>
+                              <div className="flex items-center">
+                                  <span className="text-gray-600">you can reach me at</span>
+                                  <input 
+                                      type="email" 
+                                      className="mx-2 px-2 py-1 border-b-2 border-gray-300 focus:border-blue-500 bg-transparent outline-none"
+                                      placeholder="your@email.com"
+                                  />
+                              </div>
+                              
+                          </div>
+ 
+                           
                         <div className="contact-action">
                             <p>Get a free consultation and quote for your project</p>
                             <Link to="/contact" className="cta-button">Contact Us Now</Link>
                         </div>
+                        </div>
                     </div>
                 </section>
+               
             </main>
         </div>
     </div>
