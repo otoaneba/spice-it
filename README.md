@@ -13,3 +13,4 @@ If an update to the url is needed, update navbar.js, footer.js, and app.js and c
 
 `npm run deploy` will build and deploy. no need to build and then deploy if you're only trying to deploy.
 
+Use `npx` to run deployment commands if you're having issues.
