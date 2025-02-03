@@ -8,7 +8,7 @@ function Footer() {
 		<footer className="footer">
 				<div className="icon-brand">
 					<FontAwesomeIcon className="icon" icon={faPepperHot} />
-					<a className="navbar-brand" href="/spice-it">
+					<a className="navbar-brand" href="/">
 						Spice IT Global
 					</a>
 				</div>
