@@ -57,13 +57,35 @@ body {
 
 /* Hero-section ------------------------------------------------------------------------------------------------------------- */
 .hero-section {
-  display: flex;
+  /* display: flex;
   width: 100vw;
   position: relative;
   padding: 8rem 2rem 12rem 2rem;
-  background: var(--secondary-color); /*#f9f9f9; */
-  /* background: transparent; */
+  background: var(--secondary-color);
+  align-items: center; */
+  position: relative;
+  background-image: url('../assets/spice.jpg'); /* Use the correct path */
+  background-size: 130%; /* Zoom in on the image */
+  background-position: center left; /* Shift the image to the right */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 100vh; /* Adjust as needed */
+  display: flex;
   align-items: center;
+  justify-content: flex-start; /* Align text to the left */
+  text-align: left; /* Align text to the left */
+  color: white; /* Ensure text is readable */
+  padding: 0 2rem; /* Add some padding for smaller screens */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.0); /* Add a dark overlay for better text contrast */
+  z-index: 0; /* Ensure overlay is below text */
 }
 
 .hero-container {
@@ -75,12 +97,13 @@ body {
 }
 
 .hero-content {
-  max-width: 1200px;
-  display: flex;
+  max-width: 600px; /*1200, 800*/
+  z-index: 1;
+  /* display: flex;
   flex-direction: column;
   text-align: left;
   justify-content: flex-start;
-  color: var(--primary-color);
+  color: var(--primary-color); */
 }
 
 .hero-image {
@@ -100,13 +123,18 @@ body {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
+  /* color: var(--primary-color); */
+}
+
+.highlight {
+  color: var(--cta-color);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   opacity: 0.9;
-  color: var(--subtitle-color);
+  color: var(--secondary-color);
 }
 
 .cta-button {
@@ -127,6 +155,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    background-position: center bottom;
+  }
   .hero-container {
     padding: 0 2rem; /* Match mobile padding */
     flex-direction: column;
@@ -136,10 +167,12 @@ body {
     max-width: 100%;
     h1 {
       font-size: 2.2rem;
+      color: var(--primary-color);
     }
 
     p {
       font-size: 1.125rem;
+      color: var(--subtitle-color);
     }
 
     button {
@@ -149,9 +182,10 @@ body {
 
   .hero-section {
     flex-direction: column;
-    padding: 3rem 0.125rem;
+    padding: 3rem 2rem;
     gap: 2rem;
   }
+
   .hero-image {
     width: 100%;
     padding: 2rem 0;
@@ -169,7 +203,6 @@ body {
   background-color: var(--primary-color);
   clip-path: polygon(0 0%, 100% 0, 100% 70%, 0 100%);
   margin-bottom: 0rem; 
-
 }
 
 .who-we-are .section-content {
@@ -979,9 +1012,9 @@ body {
 }
 
 .blur-circle-2 {
-  bottom: -250px;
+  bottom: 220px;
   right: -250px;
-  background: radial-gradient(circle at center, blue, rgba(0, 64, 128, 0));
+  background: radial-gradient(circle at right, var(--cta-color), rgba(227, 227, 227, 0));
 }
 
 .section-content {

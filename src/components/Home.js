@@ -13,6 +13,7 @@ import m82Image from '../assets/M82.jpg';
 import jijiImage from '../assets/jiji.JPG';
 import naotoImage from '../assets/naoto.jpg';
 import cynthiaImage from '../assets/cynthia.JPG';
+import spice from '../assets/spice.jpg';
 
 
 const sliderSettings = {
@@ -166,18 +167,18 @@ function Home() {
  
         <div className="home-container">
           <section className="hero-section">
-            <div className="hero-container">
+            {/* <div className="hero-container"> */}
               <div className="hero-content">
                   {/* <h1>Grow your business online</h1> */}
-                  <h1>Your Business Is Unique. Your Website Should Be Too.</h1>
+                  <h1>Your Business Is <span className="highlight">Unique.</span> Your Website Should Be Too.</h1>
                   {/* <p className="hero-subtitle">Professional web solutions powered by modern technology</p> */}
                   <p className="hero-subtitle">Your business deserves more than a template. We focus on helping small businesses create custom websites that reflect their unique brand and grow with them—while taking the technical stress off their plate.</p>
                   <button className="cta-button">Get Started</button>
               </div>
-              <div className="hero-image">
-                <img src={m82Image} alt="Hero Image" />
-              </div>
-            </div>
+              {/* <div className="hero-image">
+                <img src={spice} alt="Hero Image" />
+              </div> */}
+            {/* </div> */}
           </section>
             <main>
                 <section className="who-we-are"> {/* Now why you need a website */}
@@ -258,7 +259,7 @@ function Home() {
                 <div className="blur-circle blur-circle-2"></div> */}
                  <div className="background-blur">
                     <div className="blur-circle blur-circle-1"></div>
-                    {/* <div className="blur-circle blur-circle-2"></div> */}
+                    <div className="blur-circle blur-circle-2"></div>
                 </div>
                     <div className="section-content">
                         <div>
@@ -333,7 +334,7 @@ function Home() {
 
                 <section className="use-cases">
                     <div className="section-content">
-                        <h2>See What’s Possible for Your Business.</h2>
+                        <h2>See <span className="highlight">What’s Possible</span> for Your Business.</h2>
                         <p>We start by listening to your needs to build a <b>custom website</b> that aligns with your goals. From <b>social media setup</b> to <b>photography service</b> and <b>SEO optimization</b>, we help you stand out online. Plus, our ongoing support keeps your site secure and running smoothly.</p>
                         <Slider className="use-cases-slider" {...sliderSettings}>
                           <div className="use-case-card">
@@ -442,30 +443,30 @@ function Home() {
                             </div>
                         </div>
 
-                        {/* Mobile version */}
-                        <div className="mobile-scroll-container mobile-only">
-                            {scrollSections.map((section, index) => (
-                                <div key={index} className="mobile-dropdown">
-                                    <div 
-                                        className={`dropdown-header ${openIndex === index ? 'active' : ''}`}
-                                        onClick={() => toggleDropdown(index)}
-                                    >
-                                        <h3>{section.title}</h3>
-                                        <i className={`chevron ${openIndex === index ? 'rotated' : ''}`}></i>
-                                    </div>
-                                    <div className={`dropdown-content ${openIndex === index ? 'open' : ''}`}>
-                                        <p>{section.description}</p>
-                                        <div className="dropdown-image">
-                                            <img 
-                                                src={section.image} 
-                                                alt={section.title}
-                                                className="mobile-image"
-                                            />
-                                        </div>
+                    {/* Mobile version */}
+                    <div className="mobile-scroll-container mobile-only">
+                        {scrollSections.map((section, index) => (
+                            <div key={index} className="mobile-dropdown">
+                                <div 
+                                    className={`dropdown-header ${openIndex === index ? 'active' : ''}`}
+                                    onClick={() => toggleDropdown(index)}
+                                >
+                                    <h3>{section.title}</h3>
+                                    <i className={`chevron ${openIndex === index ? 'rotated' : ''}`}></i>
+                                </div>
+                                <div className={`dropdown-content ${openIndex === index ? 'open' : ''}`}>
+                                    <p>{section.description}</p>
+                                    <div className="dropdown-image">
+                                        <img 
+                                            src={section.image} 
+                                            alt={section.title}
+                                            className="mobile-image"
+                                        />
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
+                    </div>
                 </section>
                 <section className="contact-preview">
                     <div className="section-content contact-container">
